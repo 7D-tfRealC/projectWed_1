@@ -1,0 +1,83 @@
+/* Tông màu chủ đạo của Đạt */
+:root {
+    --primary-color: #004AAD;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hiệu ứng gradient cho ảnh nổi bật */
+.bg-dark-gradient {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.w-fit {
+    width: fit-content;
+}
+
+/* Card hiệu ứng */
+.list-group-item {
+    transition: 0.3s;
+}
+/* 1. Ép tất cả các card có cùng chiều cao */
+section.mb-5 .row.g-3 > div > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Đảm bảo các khung border cao bằng nhau */
+    min-height: 140px; /* Độ cao tối thiểu để các card đều tăm tắp */
+}
+
+/* 2. Khống chế kích thước hình ảnh bên trong */
+section.mb-5 .row.g-3 img {
+    width: 80px;      /* Bạn có thể chỉnh độ rộng tùy ý */
+    height: 80px;     /* Bắt buộc cố định chiều cao ảnh */
+    object-fit: contain; /* QUAN TRỌNG: Giữ ảnh không bị bóp méo, luôn nằm gọn trong khung */
+    margin-bottom: 8px;
+}
+
+/* 3. Chỉnh lại phần chữ để không bị nhảy dòng */
+section.mb-5 .row.g-3 small {
+    font-size: 12px;
+    white-space: nowrap;    /* Không cho chữ xuống dòng */
+    overflow: hidden;       /* Ẩn nếu chữ quá dài */
+    text-overflow: ellipsis; /* Hiện dấu ... nếu chữ dài quá */
+    width: 100%;
+    text-align: center;
+}
+
+.list-group-item:hover:not(.active) {
+    background-color: #e9ecef;
+    color: var(--primary-color);
+    padding-left: 1.5rem;
+}
+
+/* Hiệu ứng hover ảnh tin tức */
+.animate-up {
+    transition: transform 0.3s ease;
+}
+
+.animate-up:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.small-title {
+    font-size: 1.1rem;
+    color: #222;
+    transition: 0.2s;
+}
+
+.small-title:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+    .small-title {
+        font-size: 0.9rem;
+    }
+}

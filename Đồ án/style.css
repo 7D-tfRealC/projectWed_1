@@ -1,0 +1,349 @@
+:root {
+    --primary-color: #77baf8;
+    --white: #ffffff;
+    --gray-light: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--white);
+}
+
+.text-primary-dark { color: var(--primary-color); }
+
+/* Header & Menu */
+.main-header {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* Khống chế kích thước logo */
+.navbar-brand img {
+    height: 60px;          /* Chiều cao chuẩn cho menu hiện đại */
+    width: 100%;           /* Tự động tính chiều rộng theo tỉ lệ ảnh */
+    object-fit: contain;   /* Đảm bảo ảnh không bị méo */
+    transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+}
+/* Tinh chỉnh cho điện thoại */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #004AAD; /* Giữ nền xanh khi menu sổ xuống */
+        padding: 15px;
+        border-radius: 0 0 10px 10px;
+        z-index: 1000;
+    }
+    
+    .nav-link {
+        padding: 10px 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .search-form {
+        margin-top: 15px;
+    }
+}
+
+/* Fix chiều cao banner cho điện thoại không bị vỡ */
+@media (max-width: 576px) {
+    #hero-slider .carousel-item img {
+        height: 200px !important; /* Đảm bảo banner không quá to trên mobile */
+        object-fit: cover;
+    }
+}
+
+/* Hiệu ứng khi di chuột vào logo */
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* Căn chỉnh lại Header để logo và menu cân đối */
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* Làm đẹp các mục trên thanh Menu */
+.navbar-nav .nav-link {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 14px;
+    text-transform: uppercase; /* Chữ in hoa cho hiện đại */
+    transition: all 0.3s ease;
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hiệu ứng sáng lên khi hover */
+    border-radius: 8px;
+}
+
+/* Fix lỗi menu bị dính sát vào Search bar */
+.search-form {
+    margin-left: 20px;
+}
+
+/* Multi-level menu hover */
+.dropdown-menu li { position: relative; }
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    display: none;
+}
+.dropdown-submenu:hover > .dropdown-menu { display: block; }
+
+/* 1. Thiết lập cho Máy tính (Desktop) */
+#hero-slider .carousel-inner {
+    height: 450px; /* Chiều cao chuẩn trên máy tính */
+    background: #eee;
+}
+
+#hero-slider .carousel-item img {
+    width: 100%;
+    height: 450px;    /* Khóa chiều cao máy tính */
+    object-fit: cover; /* Giúp ảnh không bị móp méo */
+}
+
+/* 2. Thiết lập cho Máy tính bảng (Tablet - Dưới 992px) */
+@media (max-width: 992px) {
+    #hero-slider .carousel-inner,
+    #hero-slider .carousel-item img {
+        height: 300px; /* Hạ thấp chiều cao xuống */
+    }
+}
+
+/* 3. Thiết lập cho Điện thoại (Mobile - Dưới 576px) */
+@media (max-width: 576px) {
+    #hero-slider .carousel-inner,
+    #hero-slider .carousel-item img {
+        height: 180px; /* Chiều cao nhỏ gọn để vừa màn hình điện thoại */
+        object-fit: contain; /* Trên mobile nên dùng contain để hiện đầy đủ chiều ngang ảnh banner */
+        background: #fff;    /* Nền trắng để nếu ảnh ngắn hơn màn hình thì vẫn đẹp */
+    }
+}
+/* Product Cards */
+.product-card {
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,74,173,0.15);
+}
+
+.badge-sale {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+}
+
+.cat-item {
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cat-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.btn-tab {
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: #666;
+    padding: 5px 15px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.btn-tab.active {
+    color: #004AAD;
+}
+
+/* Hiệu ứng gạch chân dưới chữ khi được chọn */
+.btn-tab.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    height: 3px;
+    background-color: #004AAD;
+    border-radius: 10px;
+}
+
+.btn-tab:hover {
+    color: #004AAD;
+}
+
+/* Animations */
+.animate-up {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/*animation cho các filler*/
+/* Làm nút dài hơn và chữ rõ ràng hơn */
+.btn-tab {
+    border: 1px solid #dee2e6;
+    background: #fff;
+    font-weight: 600;
+    color: #444;
+    padding: 10px 30px; /* Tăng 30px để nút dài ra hai bên */
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 140px; /* Đảm bảo nút có độ dài tối thiểu bằng nhau */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Khi nút được chọn (Active) */
+.btn-tab.active {
+    background-color: #004AAD;
+    color: #fff !important;
+    border-color: #004AAD;
+    padding: 10px 40px; /* Khi chọn thì nút dài ra thêm chút nữa cho hiệu ứng mượt */
+    box-shadow: 0 5px 15px rgba(0, 74, 173, 0.3);
+}
+
+/* Tinh chỉnh cho điện thoại: Nút không quá dài gây tràn màn hình */
+@media (max-width: 576px) {
+    .btn-tab {
+        padding: 8px 15px;
+        min-width: 100px;
+        font-size: 13px;
+    }
+    .filter-tabs {
+        gap: 10px !important;
+    }
+}
+/* Khung chứa ảnh tin tức */
+.news-img-box {
+    flex: 0 0 280px; /* Cố định độ rộng khung ảnh là 280px */
+    height: 160px;   /* Cố định chiều cao */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.news-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giúp ảnh luôn lấp đầy khung mà không bị méo */
+    transition: 0.4s;
+}
+
+/* Hiệu ứng khi rê chuột vào bài viết */
+.news-card:hover img {
+    transform: scale(1.1); /* Ảnh phóng to nhẹ */
+}
+
+.hover-blue:hover {
+    color: #004AAD !important; /* Tiêu đề đổi sang màu xanh thương hiệu của Đạt */
+}
+
+.news-info h5 {
+    line-height: 1.4;
+    font-size: 1.2rem;
+}
+/* Responsive cho điện thoại: Ảnh nằm trên, chữ nằm dưới */
+@media (max-width: 768px) {
+    .news-card {
+        flex-direction: column;
+    }
+    .news-img-box {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 15px;
+    }
+    .news-info {
+        margin-left: 0 !important;
+    }
+}
+.used-products-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 cột đều nhau */
+    border: 1px solid #eee;
+}
+.used-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Xóa border-right ở cột cuối cùng */
+.used-item:nth-child(6n) {
+    border-right: none;
+}
+
+/* Xóa border-bottom ở hàng cuối cùng */
+.used-item:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.used-item:hover {
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+}
+
+.used-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+
+.used-item span {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.2;
+}
+
+/* Responsive cho Mobile: Chuyển thành 2 hoặc 3 cột */
+@media (max-width: 992px) {
+    .used-products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .used-item:nth-child(6n) { border-right: 1px solid #f0f0f0; }
+    .used-item:nth-child(3n) { border-right: none; }
+}
+
+@media (max-width: 576px) {
+    .used-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .used-item:nth-child(3n) { border-right: 1px solid #f0f0f0; }
+    .used-item:nth-child(2n) { border-right: none; }
+}
+#qaFormCustom .form-control:focus {
+    border-color: #004AAD;
+    box-shadow: 0 0 0 0.25rem rgba(0, 74, 173, 0.15);
+}
+
+#qaFormCustom .form-control {
+    padding: 0.6rem 1rem;
+    border: 1px solid #e0e0e0;
+}
+
+#qaFormCustom label {
+    color: #555;
+}
+
+#qaFormCustom .btn-primary:hover {
+    background: #003580 !important; /* Đậm hơn một chút khi hover */
+    transform: translateY(-1px);
+    transition: 0.3s;
+}

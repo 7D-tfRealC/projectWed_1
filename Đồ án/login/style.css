@@ -1,0 +1,137 @@
+/* Tông màu chủ đạo */
+:root {
+    --primary-color: #004AAD;
+    --bg-light: #f4f7f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a8cb8, #cfdef3);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo-section img {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.logo-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.logo-section p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Ô nhập liệu */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 74, 173, 0.2);
+}
+
+/* Tùy chọn và Nút bấm */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.options a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #003580;
+    transform: translateY(-2px);
+}
+
+/* Liên kết phụ */
+.register-link {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.back-home {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.back-home a {
+    color: #999;
+    text-decoration: none;
+}
+
+.back-home a:hover {
+    color: var(--primary-color);
+}

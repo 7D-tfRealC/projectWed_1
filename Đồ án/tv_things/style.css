@@ -1,0 +1,93 @@
+:root {
+    --primary-color: #77baf8;
+    --white: #ffffff;
+    --gray-light: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--white);
+}
+
+.text-primary-dark { color: var(--primary-color); }
+
+/* Header & Menu */
+.main-header {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* Khống chế kích thước logo */
+.navbar-brand img {
+    height: 60px;          /* Chiều cao chuẩn cho menu hiện đại */
+    width: 100%;           /* Tự động tính chiều rộng theo tỉ lệ ảnh */
+    object-fit: contain;   /* Đảm bảo ảnh không bị méo */
+    transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+}
+/* Tinh chỉnh cho điện thoại */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #004AAD; /* Giữ nền xanh khi menu sổ xuống */
+        padding: 15px;
+        border-radius: 0 0 10px 10px;
+        z-index: 1000;
+    }
+    
+    .nav-link {
+        padding: 10px 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .search-form {
+        margin-top: 15px;
+    }
+}
+
+/* Fix chiều cao banner cho điện thoại không bị vỡ */
+@media (max-width: 576px) {
+    #hero-slider .carousel-item img {
+        height: 200px !important; /* Đảm bảo banner không quá to trên mobile */
+        object-fit: cover;
+    }
+}
+
+/* Hiệu ứng khi di chuột vào logo */
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* Căn chỉnh lại Header để logo và menu cân đối */
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/* Làm đẹp các mục trên thanh Menu */
+.navbar-nav .nav-link {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-size: 14px;
+    text-transform: uppercase; /* Chữ in hoa cho hiện đại */
+    transition: all 0.3s ease;
+    color: #ffffff !important;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hiệu ứng sáng lên khi hover */
+    border-radius: 8px;
+}
+
+/* Fix lỗi menu bị dính sát vào Search bar */
+.search-form {
+    margin-left: 20px;
+}
+
+/* Multi-level menu hover */
+.dropdown-menu li { position: relative; }
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+    display: none;
+}
+.dropdown-submenu:hover > .dropdown-menu { display: block; }
